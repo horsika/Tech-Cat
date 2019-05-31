@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <title>Cat view</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-danger">
+    <a class="navbar-brand" href="#">Cats</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
+            aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarText">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item ">
+                <a class="nav-link" href="/">Home </a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="/mycat">Cats <span class="sr-only">(current)</span></a>
+            </li>
+        </ul>
+        <span class="navbar-text">
+      Cats are cool
+    </span>
+    </div>
+</nav>
+
+
+<h1>Cats</h1>
+
+<!-- here goes comments -->
+
+
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <th scope="col">Breed</th>
+        <th scope="col">Color</th>
+        <th scope="col"></th>
+        <th scope="col"></th>
+        <th scope="col"></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="cat:${cat}">
+        <td th:text="${cat.breed}">Mark</td>
+        <td th:text="${cat.color}">Otto</td>
+        <td><a class="btn btn-danger" th:href="@{'/deletecat/' + ${cat.id}}">Delete</a></td>
+        <td><a class="btn btn-success" th:href="@{'/edit/' + ${cat.id}}" >Edit</a></td>
+    </tr>
+
+    </tbody>
+</table>
+
+<!--<table>-->
+<!--<thead>-->
+<!--<th>Reg</th>-->
+<!--<th>Brand</th>-->
+<!--<th>Color</th>-->
+<!--<th>MaxSpeed</th>-->
+<!--</thead>-->
+<!--<tr th:each="cat: ${cats}">-->
+<!--<td th:text="${cat.reg}+' '+${cat.brand}"></td>-->
+<!--<td th:text="${cat.brand}">{{BRAND}}</td>-->
+<!--<td th:text="${cat.color}">{{COLOR}}</td>-->
+<!--<td th:text="${cat.maxSpeed}">{{SPEED}}</td>-->
+<!--</tr>-->
+<!--</table>-->
+
+
+<!--<h2 th:text="${cats}"></h2>-->
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+
+</body>
+</html>
